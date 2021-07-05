@@ -2,6 +2,9 @@ package com.tybootcamp.ecomm.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tybootcamp.ecomm.enums.Gender;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -9,6 +12,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Profile
 {
     @Id
@@ -40,105 +46,11 @@ public class Profile
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    public Profile()
-    {
-    }
-
     public Profile(Seller seller, String firstName, String lastName, Gender gender)
     {
         this.seller = seller;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.gender = gender;
-    }
-
-    public long getId()
-    {
-        return id;
-    }
-
-    public void setId(long id)
-    {
-        this.id = id;
-    }
-
-    public Seller getSeller()
-    {
-        return seller;
-    }
-
-    public void setSeller(Seller seller)
-    {
-        this.seller = seller;
-    }
-
-    public String getFirstName()
-    {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName)
-    {
-        this.firstName = firstName;
-    }
-
-    public String getLastName()
-    {
-        return lastName;
-    }
-
-    public void setLastName(String lastName)
-    {
-        this.lastName = lastName;
-    }
-
-    public String getWebsite()
-    {
-        return website;
-    }
-
-    public void setWebsite(String website)
-    {
-        this.website = website;
-    }
-
-    public Date getBirthday()
-    {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday)
-    {
-        this.birthday = birthday;
-    }
-
-    public String getAddress()
-    {
-        return address;
-    }
-
-    public void setAddress(String address)
-    {
-        this.address = address;
-    }
-
-    public String getEmailAddress()
-    {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress)
-    {
-        this.emailAddress = emailAddress;
-    }
-
-    public Gender getGender()
-    {
-        return gender;
-    }
-
-    public void setGender(Gender gender)
-    {
         this.gender = gender;
     }
 }

@@ -8,9 +8,8 @@ import com.tybootcamp.ecomm.entities.Product;
 import com.tybootcamp.ecomm.entities.Profile;
 import com.tybootcamp.ecomm.entities.Seller;
 import com.tybootcamp.ecomm.repositories.CategoryRepository;
-import com.tybootcamp.ecomm.repositories.ProductJpaRepository;
+import com.tybootcamp.ecomm.repositories.ProductRepository;
 import com.tybootcamp.ecomm.repositories.SellerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,12 +26,12 @@ import java.util.stream.IntStream;
 @SpringBootApplication
 public class EcommApplication implements CommandLineRunner {
     private final CategoryRepository _categoryRepository;
-    private final ProductJpaRepository _productJpaRepository;
+    private final ProductRepository _productRepository;
     private final SellerRepository _sellerRepository;
 
-    public EcommApplication(CategoryRepository _categoryRepository, ProductJpaRepository _productJpaRepository, SellerRepository _sellerRepository) {
+    public EcommApplication(CategoryRepository _categoryRepository, ProductRepository _productRepository, SellerRepository _sellerRepository) {
         this._categoryRepository = _categoryRepository;
-        this._productJpaRepository = _productJpaRepository;
+        this._productRepository = _productRepository;
         this._sellerRepository = _sellerRepository;
     }
 
@@ -86,7 +85,7 @@ public class EcommApplication implements CommandLineRunner {
                     Product pictureProduct = new Product(author, author,
                             book.title(),
                             42.34f, imageUrls, finalMichael, new HashSet<>(Arrays.asList(finalArtCategory, finalWallDecorCategory)));
-                    _productJpaRepository.save(pictureProduct);
+                    _productRepository.save(pictureProduct);
                 }
         );
 
